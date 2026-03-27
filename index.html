@@ -45,15 +45,23 @@
       {"@type": "Offer", "name": "Free 15-Minute Consultation", "price": "0", "priceCurrency": "USD"}
     ]
   },
-  "employee": {
-    "@type": "Person",
-    "name": "Francesca Licciardi",
-    "jobTitle": "Licensed Mental Health Counselor",
-    "hasCredential": [
-      {"@type": "EducationalOccupationalCredential", "credentialCategory": "MA"},
-      {"@type": "EducationalOccupationalCredential", "credentialCategory": "LMHC"}
-    ]
-  }
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Francesca Licciardi",
+      "jobTitle": "Licensed Mental Health Counselor",
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "MA"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "LMHC"},
+        {"@type": "EducationalOccupationalCredential", "credentialCategory": "LPCC"}
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Nicholas Tucker",
+      "jobTitle": "Integrative Mental Health Coach & Care Coordinator"
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -257,7 +265,15 @@
   }
   .team-grid {
     display:grid;grid-template-columns:380px 1fr;gap:80px;
-    max-width:1100px;margin:80px auto 0;align-items:start;
+    max-width:1100px;margin:0 auto;align-items:start;
+  }
+  .team-member {
+    margin-top:80px;
+  }
+  .team-member + .team-member {
+    margin-top:80px;
+    padding-top:80px;
+    border-top:1px solid rgba(201,168,76,0.15);
   }
   .team-photo-wrap {
     position:sticky;top:140px;
@@ -481,6 +497,7 @@
     .team-grid{grid-template-columns:1fr;gap:48px}
     .team-photo-wrap{position:static}
     .team-stats{grid-template-columns:1fr 1fr}
+    .team-member + .team-member{margin-top:60px;padding-top:60px}
     .contact{grid-template-columns:1fr;gap:48px;padding:60px 28px}
     .booking-form{padding:32px 24px}
     .form-row{grid-template-columns:1fr}
@@ -503,7 +520,7 @@
   <ul class="nav-links">
     <li><a href="#method">The Method</a></li>
     <li><a href="#specialties">Specialties</a></li>
-    <li><a href="#team">Our Clinician</a></li>
+    <li><a href="#team">Our Team</a></li>
     <li><a href="#contact" class="nav-cta">Begin Your Journey</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false" role="button" tabindex="0">
@@ -516,7 +533,7 @@
   <div class="mobile-divider"></div>
   <a href="#method" onclick="toggleMenu()">The Method</a>
   <a href="#specialties" onclick="toggleMenu()">Specialties</a>
-  <a href="#team" onclick="toggleMenu()">Our Clinician</a>
+  <a href="#team" onclick="toggleMenu()">Our Team</a>
   <a href="#contact" onclick="toggleMenu()">Begin Your Journey</a>
   <a href="helios-assessment.html">The Assessment →</a>
   <div class="mobile-divider"></div>
@@ -629,65 +646,133 @@
 <!-- TEAM -->
 <section class="team" id="team">
   <div class="section-header reveal">
-    <p class="section-label">Our Clinician</p>
-    <h2>The <em>Guide</em> at Your Center</h2>
+    <p class="section-label">Our Team</p>
+    <h2>The <em>Guides</em> at Your Center</h2>
   </div>
 
-  <div class="team-grid">
-    <div class="team-photo-wrap reveal">
-      <img
-        class="team-photo"
-        src="https://photos.psychologytoday.com/72254468-cb98-42b2-a0ae-dc90e2bcb3b5/2/320x400.jpeg"
-        alt="Francesca Licciardi, MA, LMHC"
-      />
-      <div class="team-photo-caption">
-        <h3>Francesca Licciardi</h3>
-        <div class="credentials">MA, LMHC · Licensed Mental Health Counselor</div>
-        <p>Individual & Couples Therapy · Telehealth Available</p>
-        <div class="verified-badge">Verified by Psychology Today</div>
+  <!-- Francesca Licciardi -->
+  <div class="team-member">
+    <div class="team-grid">
+      <div class="team-photo-wrap reveal">
+        <img
+          class="team-photo"
+          src="https://photos.psychologytoday.com/72254468-cb98-42b2-a0ae-dc90e2bcb3b5/2/320x400.jpeg"
+          alt="Francesca Licciardi, MA, LMHC, LPCC"
+        />
+        <div class="team-photo-caption">
+          <h3>Francesca Licciardi</h3>
+          <div class="credentials">MA, LMHC, LPCC · Licensed Mental Health Counselor</div>
+          <p>Individual & Couples Therapy · Telehealth Available</p>
+          <div class="verified-badge">Verified by Psychology Today</div>
+        </div>
+      </div>
+
+      <div class="team-bio reveal">
+        <h2>19 years guiding people<br>toward <em>inner alignment</em></h2>
+        <p class="lead">Francesca Licciardi brings a rare combination of intellectual rigor and deep human warmth to every therapeutic relationship. Her insatiable curiosity about the human psyche and genuine appreciation for all people gives her the energy to accompany each client on their unique path toward self-actualization and inner peace.</p>
+        <p>From anxiety, depression, and PTSD to low motivation, life transitions, and relationship disconnect — Francesca works with the full spectrum of human experience. Her approach is never one-size-fits-all; each care plan is customized to the unique makeup of the individual or couple she's working with.</p>
+        <p>For couples, Francesca draws on her certification in Imago Therapy — a powerful method for developing effective communication and opening intimacy through emotional awareness. For individuals, she weaves together somatic work, CBT, hypnotherapy, Internal Family Systems, and more into a cohesive, integrated path forward.</p>
+
+        <div class="team-stats">
+          <div class="stat-box">
+            <span class="stat-n">19+</span>
+            <span class="stat-label">Years in Practice</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-n">MA</span>
+            <span class="stat-label">Calif. Institute of Integral Studies</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-n">∞</span>
+            <span class="stat-label">Free 15-min Consult</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px">Treatment Modalities</p>
+        <div class="modalities-grid">
+          <span class="tag">Hypnotherapy</span>
+          <span class="tag">Somatic</span>
+          <span class="tag">CBT</span>
+          <span class="tag">Imago Therapy</span>
+          <span class="tag">IFS</span>
+          <span class="tag">Mindfulness-Based</span>
+          <span class="tag">Jungian</span>
+          <span class="tag">Trauma-Focused</span>
+          <span class="tag">Existential</span>
+          <span class="tag">Transpersonal</span>
+          <span class="tag">Coaching</span>
+          <span class="tag">Gestalt</span>
+        </div>
+
+        <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#contact" class="btn-primary">Book a Free Consult</a>
+          <a href="helios-assessment.html" class="btn-ghost">View The Assessment</a>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="team-bio reveal">
-      <h2>19 years guiding people<br>toward <em>inner alignment</em></h2>
-      <p class="lead">Francesca Licciardi brings a rare combination of intellectual rigor and deep human warmth to every therapeutic relationship. Her insatiable curiosity about the human psyche and genuine appreciation for all people gives her the energy to accompany each client on their unique path toward self-actualization and inner peace.</p>
-      <p>From anxiety, depression, and PTSD to low motivation, life transitions, and relationship disconnect — Francesca works with the full spectrum of human experience. Her approach is never one-size-fits-all; each care plan is customized to the unique makeup of the individual or couple she's working with.</p>
-      <p>For couples, Francesca draws on her certification in Imago Therapy — a powerful method for developing effective communication and opening intimacy through emotional awareness. For individuals, she weaves together somatic work, CBT, hypnotherapy, Internal Family Systems, and more into a cohesive, integrated path forward.</p>
-
-      <div class="team-stats">
-        <div class="stat-box">
-          <span class="stat-n">19+</span>
-          <span class="stat-label">Years in Practice</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-n">MA</span>
-          <span class="stat-label">Calif. Institute of Integral Studies</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-n">∞</span>
-          <span class="stat-label">Free 15-min Consult</span>
+  <!-- Nicholas Tucker -->
+  <div class="team-member">
+    <div class="team-grid">
+      <div class="team-photo-wrap reveal">
+        <img
+          class="team-photo"
+          src="nicholas-tucker.jpg"
+          alt="Nicholas Tucker, Integrative Mental Health Coach & Care Coordinator"
+        />
+        <div class="team-photo-caption">
+          <h3>Nicholas Tucker</h3>
+          <div class="credentials">Integrative Mental Health Coach & Care Coordinator</div>
+          <p>Mental Health Coaching · Hypnotherapy · Care Coordination</p>
         </div>
       </div>
 
-      <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px">Treatment Modalities</p>
-      <div class="modalities-grid">
-        <span class="tag">Hypnotherapy</span>
-        <span class="tag">Somatic</span>
-        <span class="tag">CBT</span>
-        <span class="tag">Imago Therapy</span>
-        <span class="tag">IFS</span>
-        <span class="tag">Mindfulness-Based</span>
-        <span class="tag">Jungian</span>
-        <span class="tag">Trauma-Focused</span>
-        <span class="tag">Existential</span>
-        <span class="tag">Transpersonal</span>
-        <span class="tag">Coaching</span>
-        <span class="tag">Gestalt</span>
-      </div>
+      <div class="team-bio reveal">
+        <h2>Bridging executive insight<br>with <em>integrative wellness</em></h2>
+        <p class="lead">Nicholas brings a unique, results-driven perspective to mental wellness by blending his extensive background in executive coaching with integrative mental health support. He partners with clients to navigate life transitions, overcome personal barriers, and build actionable strategies for holistic well-being.</p>
 
-      <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap">
-        <a href="#contact" class="btn-primary">Book a Free Consult</a>
-        <a href="helios-assessment.html" class="btn-ghost">View The Assessment</a>
+        <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;margin-top:8px">How Nicholas Supports Your Journey</p>
+
+        <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:36px">
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:0.9rem">☉</div>
+            <div>
+              <p style="font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500">Mental Health Coaching</p>
+              <p style="margin-bottom:0">Translating clinical insights into daily action plans, helping you build resilience, manage stress, and achieve your personal and professional goals.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:0.9rem">◎</div>
+            <div>
+              <p style="font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500">Hypnotherapy</p>
+              <p style="margin-bottom:0">Utilizing clinical hypnotherapy techniques to help you address deep-rooted subconscious patterns and facilitate lasting behavioral change.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:20px;align-items:flex-start">
+            <div style="width:36px;height:36px;border:1px solid rgba(201,168,76,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:0.9rem">◉</div>
+            <div>
+              <p style="font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500">Care Coordination</p>
+              <p style="margin-bottom:0">Serving as your dedicated wellness liaison — ensuring seamless communication across your entire treatment team, connecting you with trusted outside providers for a cohesive, fully supported integrative health experience.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px">Specialties</p>
+        <div class="modalities-grid">
+          <span class="tag">Executive Coaching</span>
+          <span class="tag">Life Transitions</span>
+          <span class="tag">Hypnotherapy</span>
+          <span class="tag">Stress Management</span>
+          <span class="tag">Care Coordination</span>
+          <span class="tag">Resilience Building</span>
+          <span class="tag">Behavioral Change</span>
+          <span class="tag">Holistic Wellness</span>
+        </div>
+
+        <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap">
+          <a href="#contact" class="btn-primary">Book a Free Consult</a>
+        </div>
       </div>
     </div>
   </div>
@@ -820,7 +905,7 @@
   <ul class="footer-links">
     <li><a href="#method">The Method</a></li>
     <li><a href="#specialties">Specialties</a></li>
-    <li><a href="#team">Francesca</a></li>
+    <li><a href="#team">Our Team</a></li>
     <li><a href="helios-assessment.html">The Assessment</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
