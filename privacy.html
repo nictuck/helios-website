@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Helios Integrative Health</title>
+  <meta name="description" content="Privacy Policy for Helios Integrative Health. Learn how we collect, use, and protect your personal information." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-bg: #0a0a0f;
+      --color-bg-elevated: #111118;
+      --color-surface: #1a1a24;
+      --color-gold: #c9a84c;
+      --color-gold-dim: #a08535;
+      --color-text: #d4d0c8;
+      --color-text-muted: #8a8780;
+      --color-text-bright: #eae6dc;
+      --color-border: #2a2a35;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --max-width: 780px;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-display);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- NAV BAR --- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+    .nav-back:hover { color: var(--color-gold); }
+
+    /* --- HERO --- */
+    .hero {
+      padding: 10rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '☉';
+      position: absolute;
+      top: 6.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.4rem;
+      color: var(--color-gold-dim);
+      opacity: 0.5;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--color-text-bright);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+    .hero .effective-date {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* --- CONTENT --- */
+    .content {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text-bright);
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .section h2 em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--color-text);
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+    .section ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.05rem;
+      color: var(--color-text);
+    }
+    .section ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0.25rem;
+      color: var(--color-gold-dim);
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+
+    .highlight-box {
+      background: var(--color-surface);
+      border-left: 3px solid var(--color-gold-dim);
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .highlight-box p {
+      color: var(--color-text-bright);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--color-gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    a:hover { border-bottom-color: var(--color-gold); }
+
+    /* --- FOOTER --- */
+    .footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--color-gold-dim);
+      margin-bottom: 0.75rem;
+    }
+
+    /* --- ANIMATIONS --- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero, .section {
+      animation: fadeUp 0.8s ease both;
+    }
+    .section:nth-child(2) { animation-delay: 0.05s; }
+    .section:nth-child(3) { animation-delay: 0.1s; }
+    .section:nth-child(4) { animation-delay: 0.15s; }
+
+    @media (max-width: 600px) {
+      .nav { padding: 1rem 1.25rem; }
+      .hero { padding: 8rem 1.25rem 3rem; }
+      .content { padding: 1.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="https://heliosintegrativehealth.com/" class="nav-logo">HELI☉S</a>
+    <a href="https://heliosintegrativehealth.com/" class="nav-back">← Back to Home</a>
+  </nav>
+
+  <header class="hero">
+    <h1><em>Privacy</em> Policy</h1>
+    <p class="effective-date">Effective Date: April 6, 2026</p>
+  </header>
+
+  <main class="content">
+
+    <div class="section">
+      <h2>1. <em>Who</em> We Are</h2>
+      <p>Helios Integrative Health ("Helios," "we," "us," or "our") provides integrative behavioral health services — including psychotherapy, coaching, hypnotherapy, and coordinated specialist care — primarily via telehealth. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website at <a href="https://heliosintegrativehealth.com">heliosintegrativehealth.com</a>, use the Helios Life Diagnostic assessment, or communicate with us through our contact forms.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Information <em>We Collect</em></h2>
+      <p>We may collect the following categories of personal information:</p>
+      <ul>
+        <li><strong>Contact information</strong> — your name, email address, and phone number, provided when you submit a consultation request</li>
+        <li><strong>Care preferences</strong> — the focus area and modality preferences you select in our intake form</li>
+        <li><strong>Assessment responses</strong> — information you provide when completing the Helios Life Diagnostic</li>
+        <li><strong>Communications</strong> — any additional information you share in the free-text field of our contact form or in subsequent correspondence</li>
+        <li><strong>Usage data</strong> — standard web analytics information such as pages visited, browser type, and referring URL, collected through cookies or similar technologies</li>
+      </ul>
+      <p>We do not collect Social Security numbers, financial account information, or government-issued identification through our website.</p>
+    </div>
+
+    <div class="section">
+      <h2>3. How We <em>Use</em> Your Information</h2>
+      <p>We use the personal information we collect for the following purposes:</p>
+      <ul>
+        <li>To respond to your consultation requests and schedule appointments</li>
+        <li>To provide, coordinate, and improve our integrative health services</li>
+        <li>To communicate with you about your care, including follow-up correspondence</li>
+        <li>To operate, maintain, and improve our website and assessment tools</li>
+        <li>To comply with applicable legal obligations</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>4. We Do Not <em>Sell or Share</em> Your Information</h2>
+      <div class="highlight-box">
+        <p><strong>Helios does not sell, rent, or share your personal information with third parties for marketing, advertising, or any commercial purpose.</strong></p>
+      </div>
+      <p>We will never sell your personal information as defined under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA). We do not share your personal information for cross-context behavioral advertising.</p>
+      <p>The only circumstance in which we disclose personal information to a third party is at <strong>your express request</strong> — specifically, when you ask us to coordinate care on your behalf with practitioners within our referral network (the "Orbital Network"). In that case, we share only the information necessary to facilitate your care, and only with the specific providers you have authorized.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. Your <em>California</em> Privacy Rights</h2>
+      <p>If you are a California resident, you have the following rights under the CCPA/CPRA:</p>
+      <ul>
+        <li><strong>Right to Know</strong> — You may request that we disclose the categories and specific pieces of personal information we have collected about you, the sources of that information, the purposes for collection, and any third parties with whom it has been shared.</li>
+        <li><strong>Right to Delete</strong> — You may request that we delete the personal information we have collected from you, subject to certain legal exceptions.</li>
+        <li><strong>Right to Correct</strong> — You may request that we correct inaccurate personal information we maintain about you.</li>
+        <li><strong>Right to Opt-Out of Sale or Sharing</strong> — We do not sell or share your personal information. No opt-out action is required.</li>
+        <li><strong>Right to Non-Discrimination</strong> — We will not discriminate against you for exercising any of your privacy rights.</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us using the information provided in Section 10 below. We will respond to verifiable consumer requests within 45 days as required by law.</p>
+    </div>
+
+    <div class="section">
+      <h2>6. Health Information <em>Notice</em></h2>
+      <p>Our website contact forms and the Life Diagnostic assessment are <strong>not</strong> HIPAA-secure communication channels. Please do not submit sensitive medical records, diagnoses, or detailed health histories through these forms. Information submitted through our website is used solely to facilitate scheduling and initial consultation.</p>
+      <p>Once you become an active client, any protected health information (PHI) exchanged in the course of clinical treatment is governed by HIPAA and handled through our secure electronic health record system (Simple Practice), not through this website.</p>
+    </div>
+
+    <div class="section">
+      <h2>7. <em>Cookies</em> & Tracking</h2>
+      <p>Our website may use cookies and similar technologies to improve your browsing experience and to collect aggregate usage data. We do not use cookies for targeted advertising or to build profiles for third-party marketing. You may adjust your browser settings to refuse cookies, though some features of the site may not function as intended.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Data <em>Security</em></h2>
+      <p>We implement reasonable administrative, technical, and physical safeguards to protect your personal information from unauthorized access, disclosure, alteration, and destruction. However, no method of electronic transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+    </div>
+
+    <div class="section">
+      <h2>9. <em>Changes</em> to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective Date" at the top of this page. We encourage you to review this policy periodically. Continued use of our website after changes are posted constitutes your acceptance of the revised policy.</p>
+    </div>
+
+    <div class="section">
+      <h2>10. <em>Contact</em> Us</h2>
+      <p>If you have questions about this Privacy Policy or wish to exercise your California privacy rights, please contact us:</p>
+      <p>
+        <strong>Helios Integrative Health</strong><br />
+        Email: <a href="mailto:privacy@heliosintegrativehealth.com">privacy@heliosintegrativehealth.com</a><br />
+        Or use the contact form at <a href="https://heliosintegrativehealth.com/#contact">heliosintegrativehealth.com</a>
+      </p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">HELI☉S</div>
+    <p>Integrative Health · Telehealth</p>
+    <p style="margin-top: 0.5rem;">&copy; 2026 Helios Integrative Health. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
