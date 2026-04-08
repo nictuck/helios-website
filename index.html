@@ -145,6 +145,8 @@
   .hamburger {
     display:none;flex-direction:column;justify-content:space-between;
     width:28px;height:18px;cursor:pointer;z-index:200;
+    padding:13px;box-sizing:content-box;
+    -webkit-tap-highlight-color:transparent;
   }
   .hamburger span {
     display:block;height:1px;background:var(--gold-light);
@@ -157,7 +159,7 @@
   /* ---- MOBILE OVERLAY ---- */
   .mobile-overlay {
     position:fixed;inset:0;z-index:150;
-    background:rgba(8,9,15,0.98);
+    background:rgb(8,9,15);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;
     opacity:0;pointer-events:none;
     transition:opacity 0.4s ease;
@@ -408,7 +410,7 @@
     background:rgba(8,9,15,0.6);
     border:1px solid rgba(201,168,76,0.15);
     color:var(--text);font-family:'Jost',sans-serif;
-    font-size:0.9rem;font-weight:300;
+    font-size:1rem;font-weight:300;
     border-radius:2px;
     transition:border-color 0.3s,background 0.3s;
     -webkit-appearance:none;
@@ -505,18 +507,18 @@
     .hero h1{font-size:clamp(1.6rem,6.5vw,2.4rem);max-width:100%;word-wrap:break-word;overflow-wrap:break-word}
     .hero-sub{margin-top:18px;font-size:0.85rem;padding:0 4px}
     .hero-actions{margin-top:28px;flex-direction:column;align-items:stretch;gap:12px;width:100%}
-    .hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center;box-sizing:border-box;padding:14px 16px;font-size:0.7rem}
+    .hero-actions .btn-primary,.hero-actions .btn-ghost{text-align:center;box-sizing:border-box;padding:14px 16px;font-size:0.78rem}
     .scroll-indicator{margin-top:28px}
     .intro{grid-template-columns:1fr;gap:40px;padding:60px 28px}
     .method{padding:60px 28px}
     .method-steps{grid-template-columns:1fr}
     .specialties{padding:60px 28px}
     .orbit-grid{grid-template-columns:1fr}
-    .orbit-center{order:-1}
+    .orbit-center{order:-1;overflow:hidden}
     .spec-column,.spec-column.right{align-items:center;text-align:center}
     .spec-column.right .spec-item:hover{transform:none}
     .spec-column .spec-item:hover{transform:none}
-    .spec-item{max-width:320px;width:100%}
+    .spec-item{max-width:100%;width:100%;box-sizing:border-box}
     .team{padding:60px 28px}
     .team-grid{grid-template-columns:1fr;gap:48px}
     .team-photo-wrap{position:static}
@@ -529,6 +531,9 @@
     footer{flex-direction:column;gap:28px;text-align:center;padding:40px 28px}
     .footer-links{flex-wrap:wrap;justify-content:center}
     .divider{padding:0 24px}
+  }
+  @media(max-width:374px){
+    .team-stats{grid-template-columns:1fr}
   }
 </style>
 </head>
