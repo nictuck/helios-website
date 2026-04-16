@@ -441,6 +441,8 @@
   }
   .form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(201,168,76,0.4)}
   .form-disclaimer { margin-top:14px;font-size:0.7rem;color:var(--muted);text-align:center;line-height:1.6; }
+  .form-honeypot { position:absolute;overflow:hidden;clip:rect(0,0,0,0);height:1px;width:1px;margin:-1px;padding:0;border:0; }
+  .form-net-error { display:none;margin-top:14px;font-size:0.78rem;color:#e07070;text-align:center;line-height:1.6; }
   .required-star { color:var(--gold);margin-left:2px; }
   .field-optional { font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;text-transform:lowercase;margin-left:4px; }
   .field-hint { display:block;font-size:0.68rem;color:var(--muted);margin-top:5px;padding-left:2px; }
@@ -851,7 +853,9 @@
   </div>
 
   <div class="reveal" style="transition-delay:0.2s">
-    <form class="booking-form" id="bookingForm" onsubmit="submitForm(event)" novalidate>
+    <form class="booking-form" id="bookingForm" name="booking" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitForm(event)" novalidate>
+      <input type="hidden" name="form-name" value="booking" />
+      <label class="form-honeypot">Don't fill this out: <input name="bot-field" /></label>
       <div class="form-title">Request a Consultation</div>
       <div class="form-row">
         <div class="form-group">
@@ -909,6 +913,7 @@
         <span class="btn-label">Request My Free Consultation</span>
         <span class="btn-spinner" aria-hidden="true" style="display:none">●&nbsp;●&nbsp;●</span>
       </button>
+      <div class="form-net-error" id="formNetError">Something went wrong — please try again or email us directly.</div>
       <p style="font-size:0.72rem;color:var(--muted);margin-top:14px;line-height:1.6;text-align:center">This form is not a secure patient portal. Please do not include sensitive medical details. Your submission will be used solely to schedule your consultation. By submitting you agree to our <a href="privacy.html" style="color:var(--gold);border-bottom:1px solid rgba(201,168,76,0.3)">Privacy Policy</a>.</p>
       <p class="form-disclaimer">Your information is kept strictly confidential. By submitting you agree to be contacted by Helios regarding your inquiry.</p>
     </form>
@@ -1074,11 +1079,23 @@
     btn.classList.add('loading');
     btn.querySelector('.btn-label').style.display = 'none';
     btn.querySelector('.btn-spinner').style.display = 'inline';
-    // Simulate async (replace with real fetch() when backend is ready)
-    setTimeout(() => {
-      document.getElementById('bookingForm').style.display = 'none';
+    const form = document.getElementById('bookingForm');
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(() => {
+      form.style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
-    }, 1200);
+    })
+    .catch(() => {
+      btn.classList.remove('loading');
+      btn.querySelector('.btn-label').style.display = '';
+      btn.querySelector('.btn-spinner').style.display = 'none';
+      const errEl = document.getElementById('formNetError');
+      errEl.style.display = 'block';
+    });
   }
 </script>
 </body>
