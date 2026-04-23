@@ -103,9 +103,20 @@
           <textarea id="message" name="message" rows="5" autocomplete="off" placeholder="A brief description helps us prepare for our conversation — no need for detail."></textarea>
         </div>
 
-        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;padding:18px;font-size:0.8rem">Send Message</button>
+        <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;margin-top:8px;padding:18px;font-size:0.8rem">Send Message</button>
+        <p id="formError" role="alert" style="display:none;font-size:0.8rem;color:#c0756a;margin-top:16px;line-height:1.7">Something went wrong — please try again, or email us directly at <a href="mailto:hello@heliosintegrativehealth.com" style="color:#c0756a">hello@heliosintegrativehealth.com</a>.</p>
         <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;line-height:1.7">We respond within 24 hours. This form is not monitored for crisis support — if you are in crisis, please contact the <a href="https://988lifeline.org" target="_blank" rel="noopener" style="color:var(--gold)">988 Suicide &amp; Crisis Lifeline</a> or go to your nearest emergency room.</p>
       </form>
+
+      <div id="formSuccess" role="status" style="display:none;margin-top:32px;padding:40px 32px;border:1px solid rgba(201,168,76,0.2);text-align:center">
+        <div style="font-size:2.2rem;color:var(--sun);margin-bottom:20px">☉</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--text);margin-bottom:12px">Message <em>Received</em></h3>
+        <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.8;max-width:340px;margin:0 auto">We'll be in touch within 24 hours to schedule your complimentary consultation.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="/assessment" class="btn-ghost" style="font-size:0.75rem;padding:12px 24px">Take the Assessment</a>
+          <a href="/" class="btn-ghost" style="font-size:0.75rem;padding:12px 24px">Back to Home</a>
+        </div>
+      </div>
     </div>
 
     <div>
@@ -175,6 +186,7 @@
 
 <script>
 const cursor=document.getElementById('cursor');const ring=document.getElementById('cursorRing');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-4+'px';cursor.style.top=my-4+'px';});function animateRing(){rx+=(mx-rx-16)*0.12;ry+=(my-ry-16)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(3)';ring.style.transform='scale(0.5)'});el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)'});});function toggleMenu(){const h=document.getElementById('hamburger');const o=document.getElementById('mobileOverlay');h.classList.toggle('open');o.classList.toggle('open');const isOpen=o.classList.contains('open');document.body.style.overflow=isOpen?'hidden':'';h.setAttribute('aria-expanded',isOpen);h.setAttribute('aria-label',isOpen?'Close navigation menu':'Open navigation menu');if(isOpen){const fl=o.querySelector('a');if(fl)setTimeout(()=>fl.focus(),420);}}document.getElementById('hamburger').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMenu();}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('mobileOverlay').classList.contains('open')){toggleMenu();document.getElementById('hamburger').focus();}});const canvas=document.getElementById('starfield');const ctx=canvas.getContext('2d');let W,H,stars=[];function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}resize();window.addEventListener('resize',resize);for(let i=0;i<280;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,alpha:Math.random()*0.6+0.1,speed:Math.random()*0.0002+0.00005,pulse:Math.random()*Math.PI*2});function drawStars(){ctx.clearRect(0,0,W,H);stars.forEach(s=>{s.pulse+=s.speed*60;const a=s.alpha*(0.6+0.4*Math.sin(s.pulse));ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,200,${a})`;ctx.fill();});requestAnimationFrame(drawStars);}drawStars();(function(){const nav=document.querySelector('nav');function onScroll(){nav.classList.toggle('scrolled',window.scrollY>60);}window.addEventListener('scroll',onScroll,{passive:true});onScroll();})();const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});reveals.forEach(el=>observer.observe(el));
+(function(){const form=document.querySelector('form[name="booking"]');if(!form)return;form.addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('submitBtn');const errMsg=document.getElementById('formError');btn.disabled=true;btn.textContent='Sending…';errMsg.style.display='none';try{await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});form.style.display='none';const success=document.getElementById('formSuccess');success.style.display='block';success.scrollIntoView({behavior:'smooth',block:'center'});}catch(err){btn.disabled=false;btn.textContent='Send Message';errMsg.style.display='block';}});})();
 </script>
 </body>
 </html>
