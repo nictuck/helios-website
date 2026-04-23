@@ -70,10 +70,9 @@
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
+<canvas id="helios-nebula" aria-hidden="true"></canvas>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-<canvas id="starfield"></canvas>
 
 <!-- NAV -->
 <nav>
@@ -558,31 +557,6 @@
     }
   });
 
-  // --- Starfield ---
-  const canvas=document.getElementById('starfield');
-  const ctx=canvas.getContext('2d');
-  let W,H,stars=[],starRafId=null,starVisible=true;
-  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
-  resize(); window.addEventListener('resize',resize);
-  for(let i=0;i<280;i++) stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,alpha:Math.random()*0.6+0.1,speed:Math.random()*0.0002+0.00005,pulse:Math.random()*Math.PI*2});
-  function drawStars(){
-    if(!starVisible){starRafId=null;return;}
-    ctx.clearRect(0,0,W,H);
-    stars.forEach(s=>{
-      s.pulse+=s.speed*60;
-      const a=s.alpha*(0.6+0.4*Math.sin(s.pulse));
-      ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(240,230,200,${a})`;ctx.fill();
-    });
-    starRafId=requestAnimationFrame(drawStars);
-  }
-  const starObs=new IntersectionObserver(entries=>{
-    starVisible=entries[0].isIntersecting;
-    if(starVisible && !starRafId) starRafId=requestAnimationFrame(drawStars);
-  },{threshold:0});
-  starObs.observe(document.querySelector('.hero'));
-  starRafId=requestAnimationFrame(drawStars);
-
   // --- Nav scroll-shrink ---
   (function(){
     const nav=document.querySelector('nav');
@@ -664,6 +638,11 @@
     });
   }
 (function(){
+  var sectionScenes={'about':'home','method':'services','specialties':'services','team':'team','contact':'contact'};
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var s=sectionScenes[e.target.id];if(s&&window.HeliosNebula)window.HeliosNebula.setScene(s);}});},{threshold:0.3,rootMargin:'-10% 0px -10% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){obs.observe(s);});
+})();
+(function(){
   function getTheme(){return document.documentElement.getAttribute('data-theme')||'light';}
   function updateToggles(theme){
     var isDark=theme==='dark';
@@ -690,5 +669,6 @@
   requestAnimationFrame(function(){document.body.classList.add('theme-ready');});
 })();
 </script>
+<script src="/nebula.js"></script>
 </body>
 </html>
