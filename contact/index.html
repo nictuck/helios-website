@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Helios | Book a Free Consultation</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" href="/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#000000" />
+<meta name="description" content="Book a free 15-minute consultation with Helios Integrative Health. Therapy with Francesca Licciardi or coaching with Nicholas Tucker — we'll respond within 24 hours.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://heliosintegrativehealth.com/contact">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Helios | Book a Free Consultation">
+<meta property="og:description" content="Book a free 15-minute consultation with Helios Integrative Health. Therapy or coaching — we'll respond within 24 hours.">
+<meta property="og:url" content="https://heliosintegrativehealth.com/contact">
+<meta property="og:site_name" content="Helios Integrative Health">
+<meta property="og:image" content="https://heliosintegrativehealth.com/og-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Helios | Book a Free Consultation">
+<meta name="twitter:description" content="Book a free 15-minute consultation with Helios Integrative Health.">
+<meta name="twitter:image" content="https://heliosintegrativehealth.com/og-default.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas id="starfield"></canvas>
+
+<nav>
+  <a href="/" class="nav-logo">HELI<span>☉</span>S</a>
+  <ul class="nav-links">
+    <li><a href="/therapy">Therapy</a></li>
+    <li><a href="/coaching">Coaching</a></li>
+    <li><a href="/#method">The Method</a></li>
+    <li><a href="/assessment">Assessment</a></li>
+    <li><a href="/contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open navigation menu" aria-expanded="false" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-divider"></div>
+  <a href="/therapy" onclick="toggleMenu()">Therapy</a>
+  <a href="/coaching" onclick="toggleMenu()">Coaching</a>
+  <a href="/#method" onclick="toggleMenu()">The Method</a>
+  <a href="/assessment" onclick="toggleMenu()">Assessment</a>
+  <a href="/contact" onclick="toggleMenu()">Contact</a>
+  <div class="mobile-divider"></div>
+</div>
+
+<section class="page-hero">
+  <p class="page-eyebrow">Contact · Free 15-Minute Consultation</p>
+  <h1>Begin the <em>Conversation</em></h1>
+  <p class="lead">We respond to all inquiries within 24 hours. Tell us a little about what brings you here, and we'll be in touch to schedule your complimentary consultation.</p>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-sun"></div><div class="divider-line"></div></div>
+
+<section class="content-section reveal" style="max-width:860px;margin:0 auto">
+
+  <div class="content-two-col" style="gap:60px;align-items:start">
+
+    <div>
+      <span class="content-label">Send a Message</span>
+      <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/" style="margin-top:32px">
+        <input type="hidden" name="form-name" value="booking">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="First and last name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option value="">— Please select —</option>
+            <option value="therapy">Therapy (Francesca)</option>
+            <option value="coaching">Coaching (Nicholas)</option>
+            <option value="both">Both / Not Sure Yet</option>
+            <option value="hypnotherapy-clinical">Clinical Hypnotherapy</option>
+            <option value="hypnotherapy-coaching">Coaching Hypnotherapy</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">What brings you here? <span style="color:var(--text-dim);font-weight:300">(optional)</span></label>
+          <textarea id="message" name="message" rows="5" placeholder="A brief description helps us prepare for our conversation — no need for detail."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:8px;padding:18px;font-size:0.8rem">Send Message</button>
+        <p style="font-size:0.75rem;color:var(--text-dim);margin-top:16px;line-height:1.7">We respond within 24 hours. This form is not monitored for crisis support — if you are in crisis, please contact the <a href="https://988lifeline.org" target="_blank" rel="noopener" style="color:var(--gold)">988 Suicide &amp; Crisis Lifeline</a> or go to your nearest emergency room.</p>
+      </form>
+    </div>
+
+    <div>
+      <span class="content-label">Other Ways to Reach Us</span>
+      <div style="margin-top:32px">
+        <div class="info-box" style="margin-bottom:24px">
+          <h4>Therapy — Francesca Licciardi</h4>
+          <p>For therapy inquiries in California or Washington, individual or couples sessions, and clinical hypnotherapy. Free 15-minute consultation before any commitment.</p>
+          <p style="margin-top:12px"><a href="/therapy" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3)">Explore Francesca's practice →</a></p>
+        </div>
+        <div class="info-box" style="margin-bottom:24px">
+          <h4>Coaching — Nicholas Tucker</h4>
+          <p>For executive coaching, team coaching, performance coaching, and coaching hypnotherapy. Complimentary discovery call to explore fit.</p>
+          <p style="margin-top:12px"><a href="/coaching" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3)">Explore Nicholas's coaching →</a></p>
+        </div>
+        <div class="info-box">
+          <h4>Not Sure Where to Start?</h4>
+          <p>Take the free Helios Insight Engine — a 10-minute assessment across 8 life areas. It will help clarify what kind of support makes sense and give us a shared starting point for our conversation.</p>
+          <p style="margin-top:12px"><a href="/assessment" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,0.3)">Begin the assessment →</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">HELI<span style="color:var(--sun);font-size:1.25em;line-height:1;vertical-align:top;position:relative;top:0.05em;margin-left:-0.13em;letter-spacing:-0.07em;">☉</span>S</div>
+    <div class="footer-tagline" style="margin-top:8px">Integrative Health · Telehealth</div>
+  </div>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <div class="footer-col">
+      <span class="footer-col-title">Practice</span>
+      <ul class="footer-links">
+        <li><a href="/therapy">Therapy</a></li>
+        <li><a href="/coaching">Coaching</a></li>
+        <li><a href="/therapy/hypnotherapy">Hypnotherapy</a></li>
+        <li><a href="/integrative-care">Integrative Care</a></li>
+        <li><a href="/assessment">The Assessment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Our Team</span>
+      <ul class="footer-links">
+        <li><a href="/about">About</a></li>
+        <li><a href="/about#francesca">Francesca Licciardi</a></li>
+        <li><a href="/about#nicholas">Nicholas Tucker</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Get Started</span>
+      <ul class="footer-links">
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Book a Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-title">Legal</span>
+      <ul class="footer-links">
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Service</a></li>
+      </ul>
+    </div>
+  </nav>
+</footer>
+
+<script>
+const cursor=document.getElementById('cursor');const ring=document.getElementById('cursorRing');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx-4+'px';cursor.style.top=my-4+'px';});function animateRing(){rx+=(mx-rx-16)*0.12;ry+=(my-ry-16)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.transform='scale(3)';ring.style.transform='scale(0.5)'});el.addEventListener('mouseleave',()=>{cursor.style.transform='scale(1)';ring.style.transform='scale(1)'});});function toggleMenu(){const h=document.getElementById('hamburger');const o=document.getElementById('mobileOverlay');h.classList.toggle('open');o.classList.toggle('open');const isOpen=o.classList.contains('open');document.body.style.overflow=isOpen?'hidden':'';h.setAttribute('aria-expanded',isOpen);h.setAttribute('aria-label',isOpen?'Close navigation menu':'Open navigation menu');if(isOpen){const fl=o.querySelector('a');if(fl)setTimeout(()=>fl.focus(),420);}}document.getElementById('hamburger').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMenu();}});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('mobileOverlay').classList.contains('open')){toggleMenu();document.getElementById('hamburger').focus();}});const canvas=document.getElementById('starfield');const ctx=canvas.getContext('2d');let W,H,stars=[];function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}resize();window.addEventListener('resize',resize);for(let i=0;i<280;i++)stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.2+0.2,alpha:Math.random()*0.6+0.1,speed:Math.random()*0.0002+0.00005,pulse:Math.random()*Math.PI*2});function drawStars(){ctx.clearRect(0,0,W,H);stars.forEach(s=>{s.pulse+=s.speed*60;const a=s.alpha*(0.6+0.4*Math.sin(s.pulse));ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(240,230,200,${a})`;ctx.fill();});requestAnimationFrame(drawStars);}drawStars();(function(){const nav=document.querySelector('nav');function onScroll(){nav.classList.toggle('scrolled',window.scrollY>60);}window.addEventListener('scroll',onScroll,{passive:true});onScroll();})();const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});reveals.forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

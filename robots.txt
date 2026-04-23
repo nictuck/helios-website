@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block Netlify internal paths
+Disallow: /.netlify/
+
+Sitemap: https://heliosintegrativehealth.com/sitemap.xml
