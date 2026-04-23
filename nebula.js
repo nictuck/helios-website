@@ -170,7 +170,16 @@
   function setTheme(theme) {
     if (theme === currentTheme) return;
     currentTheme = theme;
-    setScene(currentSceneName);
+    // Force a transition to the same scene in the new theme palette.
+    // We can't reuse setScene() because it short-circuits when the scene
+    // name hasn't changed — directly initiate the transition instead.
+    fromSnap = {
+      clouds: liveClouds.map(function(c) { return { color: c.color.slice(), alpha: c.alpha }; }),
+      bg: liveBg.slice()
+    };
+    toSceneName = currentSceneName;
+    transStart = null;
+    transitioning = true;
   }
 
   function updateTransition(ts) {
