@@ -53,17 +53,17 @@ nav:not(.footer-nav):not(.breadcrumb).scrolled {
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 rgba(201,168,76,0.08);
 }
-.nav-logo { font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;letter-spacing:0.12em;color:var(--gold-light);text-decoration:none; }
-.nav-logo span {
-  color: var(--sun);
-  font-size: 1.25em;
-  line-height: 1;
-  vertical-align: top;
-  position: relative;
-  top: 0.05em;
-  margin-left: -0.13em;
-  letter-spacing: -0.07em;
-}
+.nav-logo { font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:500;letter-spacing:0.12em;color:var(--gold-light);text-decoration:none;display:flex;align-items:center; }
+.logo-icon { position:relative;width:1em;height:1em;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;margin:0 0.01em; }
+.logo-sun { position:absolute;width:28%;height:28%;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFE5A0,#F4A832 50%,#C97A15);box-shadow:0 0 4px 2px rgba(244,168,50,0.55);z-index:1;animation:logo-pulse 4s ease-in-out infinite; }
+.logo-orbit { position:absolute;border-radius:50%;top:0;left:0;right:0;bottom:0;margin:auto; }
+.logo-orbit-1 { width:55%;height:55%;border:1px solid rgba(201,168,76,0.7);animation:logo-spin 6s linear infinite; }
+.logo-orbit-2 { width:85%;height:85%;border:1px solid rgba(201,168,76,0.35);animation:logo-spin 14s linear infinite reverse; }
+.logo-planet { position:absolute;border-radius:50%;top:-1.5px;left:50%;transform:translateX(-50%); }
+.logo-planet-1 { width:3px;height:3px;background:#5B99CC; }
+.logo-planet-2 { width:2.5px;height:2.5px;background:#E8C97A;top:-1.25px; }
+@keyframes logo-spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes logo-pulse { 0%,100%{box-shadow:0 0 3px 1px rgba(244,168,50,0.5)} 50%{box-shadow:0 0 6px 3px rgba(244,168,50,0.75)} }
 .nav-links { display:flex;gap:44px;list-style:none; }
 .nav-links a { text-decoration:none;color:var(--text-dim);font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;transition:color 0.3s; }
 .nav-links a:hover { color:var(--gold-light); }
