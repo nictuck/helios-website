@@ -829,8 +829,11 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   .faq-section{padding:60px 28px}
   .related-section{padding:40px 28px 60px}
   .cta-section{padding:60px 28px}
-  .person-section{grid-template-columns:1fr;gap:40px;padding:60px 28px}
-  .person-photo{position:static}
+  .person-section{grid-template-columns:1fr;gap:32px;padding:0}
+  .person-photo{position:static;text-align:center}
+  .person-photo img{max-width:280px;margin:0 auto;display:block}
+  .person-photo-caption{text-align:center}
+  .content-h2{font-size:clamp(1.5rem,5.5vw,1.8rem);word-wrap:break-word;overflow-wrap:break-word}
   .person-layout{grid-template-columns:1fr;gap:40px}
   .person-layout-reverse{direction:ltr}
   .person-photo-col{position:static}
