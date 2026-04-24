@@ -818,6 +818,10 @@ body::after{content:'';position:fixed;inset:0;background-image:url("data:image/s
   /* Service pages */
   .breadcrumb{padding:88px 24px 0}
   .page-hero{padding:90px 24px 60px}
+  .page-eyebrow{font-size:0.6rem;letter-spacing:0.18em}
+  .page-hero h1{font-size:clamp(1.9rem,6vw,2.4rem)}
+  .page-hero-actions{flex-direction:column;align-items:stretch;gap:12px}
+  .page-hero-actions .btn-primary,.page-hero-actions .btn-ghost{text-align:center;box-sizing:border-box;padding:14px 20px;font-size:0.75rem;letter-spacing:0.1em}
   .content-section{padding:60px 28px}
   .content-section.bg-dark .content-inner{padding:0 28px}
   .content-two-col{grid-template-columns:1fr;gap:40px}
